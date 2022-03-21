@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       server: ./server
-      client: ./client
+      client: /client
     strategy:
       matrix:
         node-version: [12.x]
