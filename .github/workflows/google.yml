@@ -36,10 +36,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@v0
 
       # Setup gcloud CLI
-      - uses: google-github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@v0
         with:
           version: "270.0.0"
           service_account_email: ${{ secrets.GKE_EMAIL }}
