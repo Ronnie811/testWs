@@ -28,7 +28,7 @@ env:
   DEPLOYMENT_NAME: web-app
   NODE_ENV: production
   server: ./server
-  client: /client
+  client: ..//client
 
 jobs:
   setup-build-publish-deploy:
