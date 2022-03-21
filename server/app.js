@@ -15,7 +15,7 @@ app.use(cors())
 app.use(express.static('client'))
 
 // API
-app.get('/fortune', async (req, res) => {
+app.get('/DevOps', async (req, res) => {
     console.log("Processing get at /fortune");
     res.send(await get_random());
 })
