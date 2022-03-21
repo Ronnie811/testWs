@@ -27,8 +27,8 @@ env:
   REGISTRY_HOSTNAME: gcr.io
   DEPLOYMENT_NAME: web-app
   NODE_ENV: production
-  server: ./server
-  client: ./client
+  server: server
+  client: client
 
 jobs:
   setup-build-publish-deploy:
