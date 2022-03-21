@@ -28,7 +28,7 @@ env:
   DEPLOYMENT_NAME: web-app
   NODE_ENV: production
   server: ./server
-  client: client
+  client: ./client
 
 jobs:
   setup-build-publish-deploy:
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: google-github-actions/setup-gcloud@v0
+        uses: actions/checkout@v2
 
       # Setup gcloud CLI
       - uses: google-github-actions/setup-gcloud@v0
