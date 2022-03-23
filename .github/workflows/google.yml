@@ -14,7 +14,7 @@ on:
   push:
     branches:
       - master
-      - gke_deploy
+      - develop
 
 # Environment variables available to all jobs and steps in this workflow
 env:
