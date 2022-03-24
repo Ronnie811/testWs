@@ -1,55 +1,56 @@
-import express from "express";
-import cors from "cors";
-import "dotenv/config";
-
-import {get_random} from './database';
-// New comment... dfkgjbadfgvliabv
-// Fix error encountered during npm test: 
-// ReferenceError: regeneratorRuntime is not defined 
-import "core-js/stable";
-import "regenerator-runtime/runtime";
-
-// Setup server
+const express = require("express");
 const app = express();
-app.use(cors())
-app.use(express.static('client'))
+const apikey = process.env.APIKEY;
 
-// API
-app.get('/DevOps', async (req, res) => {
-    console.log("Processing get at /DevOps");
-    if(req.body.message){
-    const { message1 } = 'This is a test';
-    const { to } = 'Juan Perez';
-    const { from } = '“Rita Asturia';
-    const { timeToLifeSec } = 45;
-    const newWs = {
-        message1,
-        to,
-        from,
-        timeToLifeSec
-    };
-    console.log("Message :"+ newMs);
-    res.send(200, {message: [newWs]})
-    res.redirect('/DevOps',{newWs});
-    res.send(await get_random());
-    }else{
-        res.send("ERROR")
-    }
+const client =  [
+    {
+    id:123,
+    api_key: '2f5ae96c-b558-4c7b-a590-a501ae1c3f6c',
+    from: 'Alexis',
+    host: 'http://localhost:4545/test2'
+ },
+];
+
+app.get('/DevOps', (req, res) => {
+    res.send("This is our main endpoint4!");
 })
 
-app.get('/test1', async (req, res) => {
-    if(req.body.message){
-        console.log("This is the test 1");
-        res.send(200, {users: []})
-    }else{
-        res.send("ERROR")
-    }
-    
+app.listen(4545, () =>{
+    console.log("Up and running! -- This is our books service");
+})
+
+app.get('/test2', async (req, res) => {
+    console.log("This is the test 1");
+    console.log("test: "+apikey);
+    res.send(200, {users: []})
 })
 
 app.post('/test1', async (req, res) => {
     console.log("This is the test 1 post");
+
     res.send(200, {message: 'The user had been send'})
 })
 
-export default app;
+
+const validateKey = (req, res, next) => {
+    //Where is the API key expected to be?
+    let host = req.headers.origin;
+    //let api_key = req.query.api_key; //version 1 with the querystring
+    //let api_key = req.params.apikey; //version 2 with the URL params
+    let api_key = req.header('x-api-key'); //version 3 using a header
+    let account = users.find(
+      (user) => user.host == host && user.api_key == api_key
+    );
+      //good match
+      //check the usage
+      let ApiKey = process.env.APIKEY;
+      if (ApiKey == '') {
+        
+    } else {
+      //stop and respond
+      res.status(403).send({ error: { code: 403, message: 'You not allowed.' } });
+    }
+  };
+
+
+module.exports = { client};
