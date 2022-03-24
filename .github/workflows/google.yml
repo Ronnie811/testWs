@@ -52,8 +52,8 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v0'    
 
-      #- run: |-
-      #    gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
+      - run: |-
+          gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
       # Configure docker to use the gcloud command-line tool as a credential helper
       - run: |-
