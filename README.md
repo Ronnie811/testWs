@@ -1,6 +1,6 @@
 # A simple Docker( React / Express ) App to practice CI / CD
 
-## Frontend workflow2
+## Frontend workflow3
 - cd client
 - npm install
 - npm start   (dev server)
