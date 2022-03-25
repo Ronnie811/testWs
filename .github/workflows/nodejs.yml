@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - gke_deploy
 
 jobs:
   test_frontend:
@@ -13,7 +12,7 @@ jobs:
       working-directory: ./client
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [16.x]
 
     steps:
       - name: Checkout the repo
@@ -36,7 +35,7 @@ jobs:
       client: ./client
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [16.x]
 
     steps:
       - name: Checkout the repo
